@@ -1,0 +1,135 @@
+﻿<Page
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Stratego.View"
+      xmlns:extra="clr-namespace:Stratego.Extra"
+      xmlns:viewmodel="clr-namespace:Stratego.ViewModel"
+      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Stratego.View.BoardsAdminPage"
+      xmlns:xtck="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+        
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Height="650" Width="1000"
+      Title="BoardsAdminPage" TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      DataContext="{Binding Source={StaticResource ViewModelLocator},  Path=BordViewModel}" 
+    
+      TextElement.FontWeight="Regular"
+      TextElement.FontSize="13"
+      TextOptions.TextFormattingMode="Ideal"
+      TextOptions.TextRenderingMode="Auto"
+      FontFamily="{DynamicResource MaterialDesignFont}">
+
+    <Page.Resources>
+        <Style TargetType="xtck:ColorCanvas">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)/ErrorContent}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)/ErrorContent}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+
+    <Page.Background>
+
+        <ImageBrush ImageSource="/old-paper.jpg"/>
+    </Page.Background>
+
+    <Grid>
+        <Grid  Margin="0,0,678,0">
+            <Button  Command="{Binding NavigateToAdminCommand}" Content="ADMIN" Style="{StaticResource ButtonStyle1}" Margin="87,54,55,521"/>
+            <Image Margin="87,495,55,30" Source="/Stratego;component/stratego_trim.png" Stretch="Fill"/>
+            <Label Content="NAAM:" HorizontalAlignment="Center" Margin="87,204,101,0" VerticalAlignment="Top"  FontSize="22" Width="134" FontWeight="Bold"/>
+            <TextBox Margin="171,204,55,411" FontSize="22" Text="{Binding CurrentBord.Kleur, Mode=TwoWay, ValidatesOnDataErrors=True}"></TextBox>
+            <xtck:ColorCanvas HorizontalAlignment="Left"                            
+                              SelectedColor="{Binding CurrentBord.HexCode, Mode=TwoWay, ValidatesOnDataErrors=True}"
+                              HexadecimalString="{Binding CurrentBord.HexCode}"
+                              
+                              
+                              Margin="87,244,0,128" Width="180" />
+            <Separator HorizontalAlignment="Left" Height="100" Margin="37,275,-364,0" VerticalAlignment="Top" Width="649" RenderTransformOrigin="0.5,0.5">
+                <Separator.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-90.33"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Separator.RenderTransform>
+            </Separator>
+            <Button Command="{Binding ToevoegenCommand}"  Style="{StaticResource ButtonStyle3}" Height="48" Margin="87,151,186,451"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="49">
+                <iconPacks:PackIconControl Kind="{x:Static iconPacks:PackIconMaterialKind.Plus}"
+                           Width="24"
+                           Height="24" />
+
+            </Button>
+
+            <Button Command="{Binding VerwijderenCommand}"  Style="{StaticResource ButtonStyle1}" Height="48" Margin="154,151,119,451"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="49">
+                <iconPacks:PackIconControl Kind="{x:Static iconPacks:PackIconMaterialKind.DeleteForever}"
+                           Width="24"
+                           Height="24" />
+
+            </Button>
+
+
+            <Button Command="{Binding WijzigenCommand}"  Style="{StaticResource ButtonStyle2}" Height="48"  Margin="218,151,55,451"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="49">
+                <iconPacks:PackIconControl Kind="{x:Static iconPacks:PackIconMaterialKind.Pencil}"
+                           Width="24"
+                           Height="24" />
+            </Button>
+            <Rectangle Fill="{Binding CurrentBord.HexCode}" HorizontalAlignment="Left" Height="100" Stroke="Black" VerticalAlignment="Top" Width="100" Margin="692,520,-470,0"/>
+           
+
+
+        </Grid>
+
+
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <ListView 
+                      ItemsSource="{Binding Borden}" 
+                      SelectionMode="Single" Grid.ColumnSpan="2"
+                      SelectedItem="{Binding CurrentBord}" Background="#FFFAFAFA" Grid.RowSpan="2" Margin="443,58,99,85"
+                      >
+
+                <ListView.View>
+
+                    <GridView >
+                        <GridViewColumn Width="150" 
+                                        Header="Naam"
+                                        DisplayMemberBinding="{Binding Kleur}" />
+                        <GridViewColumn Width="150" 
+                                        Header="HexCode"
+                                        DisplayMemberBinding="{Binding HexCode}" />
+                        <!--<GridViewColumn Width="150" 
+                                        Header="Score"  
+                                        DisplayMemberBinding="{Binding Score}" />-->
+
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+           
+        </Grid>
+    </Grid>
+</Page>

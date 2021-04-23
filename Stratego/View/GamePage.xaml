@@ -1,0 +1,1028 @@
+﻿<Page x:Class="Stratego.View.GamePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Stratego.View" xmlns:viewmodel="clr-namespace:Stratego" xmlns:viewmodel1="clr-namespace:Stratego.ViewModel"
+     
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="GamePage" Height="650" Width="1000"
+         DataContext="{Binding Source={StaticResource ViewModelLocator},  Path=GameViewModel}"
+         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+         TextElement.FontWeight="Regular"
+         TextElement.FontSize="13"
+         TextOptions.TextFormattingMode="Ideal"
+         TextOptions.TextRenderingMode="Auto"
+        
+         FontFamily="{DynamicResource MaterialDesignFont}"
+      >
+
+    <!--DataContext="{Binding Source={StaticResource ViewModelLocator},  Path=GameViewModel}"-->
+
+    <Page.Resources>
+
+
+
+
+        <Style x:Key="SlideBorder" TargetType="Border">
+            <Setter Property="BorderThickness" Value="3"/>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="false">
+                    <Setter Property="BorderBrush" Value="LimeGreen"/>
+                    <Setter Property="BorderThickness" Value="3"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="true">
+                    <Setter Property="BorderBrush" Value="Black"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </Page.Resources>
+    <Page.Background>
+        <ImageBrush ImageSource="/old-paper.jpg"/>
+    </Page.Background>
+
+
+
+    <Grid >
+        <Button Command="{Binding NavigateToHomeCommand}" Content="STOP" Style="{StaticResource ButtonStyle1}" Margin="90,45,799,542" Height="Auto" Width="Auto"/>
+        <Button Content="START" Style="{StaticResource ButtonStyle3}"  Command="{Binding Path=StartGameCommand}" IsEnabled="{Binding Path=isStartEnabled}" Margin="538,622,306,0" Height="28" Width="Auto" VerticalAlignment="Top"/>
+        <Border BorderThickness="2" BorderBrush="Black" Margin="293,22,38,28" Height="600" Width="660">
+            <StackPanel Background="{Binding Path=BordKleur}">
+                <Grid DataContext="{Binding Vierkanten}"   Margin="0,10,10,10" Height="569">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60*"/>
+                        <RowDefinition Height="60*"/>
+                        <RowDefinition Height="60*"/>
+                        <RowDefinition Height="60*"/>
+                        <RowDefinition Height="60*"/>
+                        <RowDefinition Height="60*"/>
+                        <RowDefinition Height="60*"/>
+                        <RowDefinition Height="60*"/>
+                        <RowDefinition Height="60*"/>
+                        <RowDefinition Height="60*"/>
+                    </Grid.RowDefinitions>
+
+                    <WrapPanel x:Name="row_01" ItemWidth="62" HorizontalAlignment="Left" Width="621" Margin="15,0,0,0" Height="54" VerticalAlignment="Top">
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[0]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[1]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[2]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[3]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[4]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[5]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[6]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[7]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[8]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[9]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </WrapPanel>
+                    <WrapPanel x:Name="row_02" ItemWidth="62" Grid.Row="1" HorizontalAlignment="Left" Width="621" Height="54" Margin="15,3.333,0,0">
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[10]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[11]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[12]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[13]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[14]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[15]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[16]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[17]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[18]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[19]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </WrapPanel>
+                    <WrapPanel x:Name="row_03" ItemWidth="62" Grid.Row="2" HorizontalAlignment="Left" Width="621" Height="54" Margin="15,3,0,0.333">
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[20]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[21]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[22]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[23]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[24]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[25]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[26]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[27]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[28]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[29]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </WrapPanel>
+                    <WrapPanel x:Name="row_04" ItemWidth="62" Grid.Row="3" HorizontalAlignment="Left" Width="621" Height="54" Margin="15,1.667,0,1.667">
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[30]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[31]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[32]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[33]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[34]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[35]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[36]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[37]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[38]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[39]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </WrapPanel>
+                    <WrapPanel x:Name="row_05" ItemWidth="62" Grid.Row="4" HorizontalAlignment="Left" Width="621" Height="54" Margin="15,3.333,0,0">
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[40]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[41]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[42]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[43]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[44]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[45]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[46]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[47]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[48]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[49]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </WrapPanel>
+                    <WrapPanel x:Name="row_06" ItemWidth="62" Grid.Row="5" HorizontalAlignment="Left" Width="621" Height="54" Margin="15,3,0,56.333" Grid.RowSpan="2">
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[50]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[51]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[52]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[53]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[54]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[55]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[56]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[57]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[58]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[59]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </WrapPanel>
+                    <WrapPanel x:Name="row_07" ItemWidth="62" Grid.Row="6" HorizontalAlignment="Left" Width="621" Height="54" Margin="15,3.333,0,56" Grid.RowSpan="2">
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[60]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[61]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[62]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[63]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[64]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[65]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[66]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[67]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[68]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[69]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </WrapPanel>
+                    <WrapPanel x:Name="row_08" ItemWidth="62" Grid.Row="7" HorizontalAlignment="Left" Width="621" Height="54" Margin="15,1.667,0,1">
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[70]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[71]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[72]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[73]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[74]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[75]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[76]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[77]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[78]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[79]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </WrapPanel>
+                    <WrapPanel x:Name="row_09" ItemWidth="62" Grid.Row="8" HorizontalAlignment="Left" Width="621" Height="54" Margin="15,3,0,56.333" Grid.RowSpan="2">
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[80]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[81]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[82]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[83]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[84]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[85]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[86]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[87]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[88]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[89]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </WrapPanel>
+                    <WrapPanel x:Name="row_10" ItemWidth="62" Grid.Row="9" HorizontalAlignment="Left" Width="621" Height="54" Margin="15,3.333,0,-0.667">
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[90]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[91]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[92]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[93]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[94]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[95]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[96]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[97]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[98]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button  IsEnabled="{Binding isSelectable}" DataContext="{Binding GeheugenVierkanten[99]}" Click="Field_Clicked" Width="42" Height="55">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                                        <Image Stretch="Fill" Source="{Binding VierkantFoto}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </WrapPanel>
+                </Grid>
+
+            </StackPanel>
+        </Border>
+        <TextBlock Style="{StaticResource TextBlockStyle1}" Text="{Binding RecentsteSessie.team1_Speler}" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="30,129,0,0" Width="101"/>
+        <TextBlock Style="{StaticResource TextBlockStyle1}" Text="{Binding RecentsteSessie.team2_Speler}" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="168,129,0,0" Width="100"/>
+        <ListBox x:Name="listBox_Copy1" HorizontalAlignment="Left" Height="98" Margin="10,503,0,0" VerticalAlignment="Top" Width="278"
+                SelectionMode="Single"
+                Background="White"
+                Foreground="Black"
+                ItemsSource="{Binding History}" 
+               
+                      />
+        <TextBlock Margin="40,601,732,10"
+                Text="{Binding Info}" FontSize="12"/>
+        <GroupBox x:Name="graveyardGroupBox" Header="Pawns" Margin="30,177,732,147">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="89*"/>
+                    <ColumnDefinition Width="23*"/>
+                    <ColumnDefinition Width="112*"/>
+                </Grid.ColumnDefinitions>
+                <ListBox x:Name="graveyard1ListBox" Margin="0,0,10,0" Grid.ColumnSpan="2"
+                     SelectionMode="Single"
+                     Background="IndianRed"
+                     Foreground="White"
+                     ItemsSource="{Binding ListView}" 
+                     SelectedValue="{Binding SelectedKarakter}">
+                </ListBox>
+                <ListBox x:Name="graveyard2ListBox" Grid.Column="2" Margin="10,0,0,0"
+                         SelectionMode="Single"
+                Background="CadetBlue"
+                ItemsSource="{Binding ListViewBlue}"
+                     SelectedValue="{Binding SelectedKarakter}" />
+
+            </Grid>
+        </GroupBox>
+
+    </Grid>
+</Page>

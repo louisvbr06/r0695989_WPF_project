@@ -1,0 +1,34 @@
+﻿<Page x:Class="Stratego.View.AdminPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Stratego.View"
+xmlns:viewmodel="clr-namespace:Stratego.ViewModel"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminPage"
+      Height="650" Width="1000"
+         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+         DataContext="{Binding Source={StaticResource ViewModelLocator},  Path=NavigationViewModel}" 
+         TextElement.FontWeight="Regular"
+         TextElement.FontSize="13"
+         TextOptions.TextFormattingMode="Ideal"
+         TextOptions.TextRenderingMode="Auto"
+         FontFamily="{DynamicResource MaterialDesignFont}">
+
+    <Page.Background>
+        <ImageBrush ImageSource="/old-paper.jpg"/>
+    </Page.Background>
+    <Page.Resources>
+        
+    </Page.Resources>
+    <Grid>
+        <Button  Command="{Binding NavigateToSessionsCommand}" Content="SESSIONS" Style="{StaticResource ButtonStyle1}" Margin="97,377,723,198"/>
+        <Button  Command="{Binding NavigateToPlayersCommand}" Content="PLAYERS" Style="{StaticResource ButtonStyle2}" Margin="97,288,723,287"/>
+        <Button  Command="{Binding NavigateToBoardsCommand}" Content="BOARDS" Style="{StaticResource ButtonStyle3}" Margin="97,199,723,376"/>
+        <Image Margin="337,146,108,135" Source="/Stratego;component/stratego_trim.png" Stretch="Fill"/>
+        <Button  Command="{Binding NavigateToHomeCommand}" Content="HOME" Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Margin="63,110,881,484"/>
+
+    </Grid>
+</Page>
